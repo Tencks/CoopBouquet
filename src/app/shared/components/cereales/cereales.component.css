@@ -1,0 +1,19 @@
+.custom-color{
+    color: rgb(12, 145, 41);
+    font-weight: 600;
+}
+
+.custom-card-img {
+    margin-top: 10px;
+    height: 100%;
+    border-radius: 4%;
+    border: 2px solid black;
+}
+
+.custom-card {
+    border-radius: 4%;
+    border: 2px solid black;
+    margin-top: 15px;
+    background-color: rgb(219, 219, 219);
+    filter: drop-shadow(3px 3px 4px black);
+}
