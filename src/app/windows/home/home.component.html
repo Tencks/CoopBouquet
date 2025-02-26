@@ -1,9 +1,28 @@
 
 <div class="container-fluid mx-auto" style="z-index: -2;position: relative;top: -100px;left: -13px;">
     
-    <video controls loop autoplay [muted]="1" width="102%">
+    <video  loop autoplay [muted]="1" width="102%">
         <source src="assets/videos/adm-boquet.mp4" type="video/mp4">
     </video>
 </div>
 
 <app-cereales></app-cereales>
+
+
+<div  style="height: 6vh; z-index: -1;"></div>
+
+<h1>Quienes Somos?</h1>
+
+<p>
+    La cooperativa, <br> 
+    En la actualidad cuenta con una capacidad de acopio de 42.000 toneladas
+    y alquila al Ferrocarril Nuevo Central Argentino (NCA), un galpón con capacidad de 1500 toneladas,
+    que es el mismo que ocupó en los años '50. 
+</p>
+
+<button type="button" class="btn btn-outline-info" [routerLink]="['/Institucion']"  routerLinkActive="active" > Conocer más</button>
+
+
+
+
+<div  style="height: 6vh; z-index: -1;"></div>
