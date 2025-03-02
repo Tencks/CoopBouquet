@@ -12,4 +12,10 @@ import { InstitucionUbicacionComponent } from "../institucion-ubicacion/instituc
 })
 export class InstitucionBaseComponent {
 
+
+  activo = '';
+
+  seleccionar(seccion: string) {
+    this.activo = seccion;
+  }
 }
