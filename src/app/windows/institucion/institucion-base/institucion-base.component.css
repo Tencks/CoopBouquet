@@ -1,6 +1,7 @@
 .content-container {
     position: relative;
-    height: 200vh; /* Ajusta según contenido */
+    height: 240vh;
+    /* min-height: calc(100% + 5rem); Altura del contenido + 5rem extra */
     overflow: hidden;
   }
   

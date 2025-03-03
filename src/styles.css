@@ -19,3 +19,22 @@ html, body {
 .content {
     flex: 1; /* Hace que el contenido ocupe el espacio disponible */
 }
+
+.custom-btn {
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.custom-btn-primary {
+    background-color: #07b42d; /* Color azul de Bootstrap */
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+.custom-btn-primary:hover {
+    background-color: #08ca32; /* Azul más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}

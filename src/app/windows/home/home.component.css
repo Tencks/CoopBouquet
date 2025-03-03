@@ -1,0 +1,8 @@
+.custom-bg-img {
+    background: linear-gradient(to right, #18cc30e3 50%, transparent 50%), 
+                url('/assets/img/empresa-frente.jpg');
+    background-size: 100%;
+    background-position: right;
+    width: 100%;
+    height: 50vh;
+}
