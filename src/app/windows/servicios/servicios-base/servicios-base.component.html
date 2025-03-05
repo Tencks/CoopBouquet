@@ -1,1 +1,76 @@
-<p>servicios-base works!</p>
+
+
+
+<div  style="height: 10vh; z-index: -1;"></div>
+
+  <div class="container border border-secondary rounded p-4">
+    <!-- <h2 class="text-center mb-4"> Servicios</h2> -->
+    
+    <h2 class="fw-bold text-success">Los Servicios</h2>
+    <p class="text-justify">
+        Desde la cooperativa, trabajamos para mejorar y ampliar los servicios que brindamos para adecuarnos al entorno cambiante y competitivo que se vive hoy en da.
+        Algunos de los beneficios logrados para el productor es el asesoramiento gratuito del personal técnico y el uso gratuito de la fertilizadora.      
+    </p>
+    <p class="text-justify">
+        Somos conscientes de que la Cooperativa es grande gracias a los socios y productores que confan en ella, es por eso que el MEJORMAMIENTO CONTINUO es nuestro principal objetivo. Mejoramiento que se ver reflejado en una mejor prestacin de servicios y mejores precios de nuestros productos.
+    </p>
+   
+    <h3 class="text-center fw-normal text-success" style="margin-bottom:1.2rem;"> Listado de Servicios</h3>
+
+
+  
+
+    <div class="d-flex justify-content-center gap-2 mb-4">
+      <button class="custom-btn custom-btn-primary" (click)="seleccionar('semillas')">Semillas/Forrajes</button>
+      <button class="custom-btn custom-btn-primary" (click)="seleccionar('balanceados')">Balanceados</button>
+      <button class="custom-btn custom-btn-primary" (click)="seleccionar('quimicos')">Productos Quimicos</button>
+      <button class="custom-btn custom-btn-primary" (click)="seleccionar('seguros')">Seguros</button>
+    </div>
+
+    <div class="d-flex justify-content-center gap-2 mb-4">
+        <button class="custom-btn custom-btn-primary" (click)="seleccionar('asesoramiento')">Asesoramiento</button>
+        <button class="custom-btn custom-btn-primary" (click)="seleccionar('turismo')">Turismo</button>
+        <button class="custom-btn custom-btn-primary" (click)="seleccionar('combustible')">Combustibles</button>
+        <button class="custom-btn custom-btn-primary" (click)="seleccionar('privada')">Med. Privada</button>
+    </div>
+  
+    <!-- Contenedor de contenido dinámico con efecto de transición -->
+    <div class="content-container">
+      <div class="animate-slide" [class.active]="activo2 === 'semillas'">
+        <app-servicios-semillas/>
+      </div>
+  
+      <div class="animate-slide" [class.active]="activo2 === 'balanceados'">
+        <app-servicios-balanceados/>
+      </div>
+  
+      <div class="animate-slide" [class.active]="activo2 === 'quimicos'">
+        <app-servicios-productos-quimicos/>
+      </div>
+  
+      <div class="animate-slide" [class.active]="activo2 === 'seguros'">
+        <app-servicios-seguros/>
+      </div>
+
+      <div class="animate-slide" [class.active]="activo2 === 'asesoramiento'">
+        <app-servicios-asesoramiento/>
+      </div>
+
+      <div class="animate-slide" [class.active]="activo2 === 'turismo'">
+        <app-servicios-turismo/>
+      </div>
+
+      <div class="animate-slide" [class.active]="activo2 === 'combustible'">
+        <app-servicios-combustibles/>
+      </div>
+
+      <div class="animate-slide" [class.active]="activo2 === 'privada'">
+        <app-servicios-med-privada/>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div  style="height: 10vh; z-index: -1;"></div>
+  

@@ -1,0 +1,4 @@
+.list-group-item{
+    background-color: #06d132b4;
+    border-bottom: var(--bs-list-group-border-width) solid black
+}

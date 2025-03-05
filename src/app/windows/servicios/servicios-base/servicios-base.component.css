@@ -1,0 +1,23 @@
+.content-container {
+    position: relative;
+    height: 240vh;
+    /* min-height: calc(100% + 5rem); Altura del contenido + 5rem extra */
+    overflow: hidden;
+  }
+  
+  .animate-slide {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(66, 231, 88, 0.253); /* Fondo semitransparente */
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .animate-slide.active {
+    left: 0;
+    opacity: 1;
+  }
+  

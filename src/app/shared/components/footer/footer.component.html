@@ -1,14 +1,74 @@
-
+<!-- 
 
 
 <footer class="bg-success text-white text-center py-3" style="height: 30vh;">
 
-<div class="container-fluid">
-    <img src="/assets/img/coop-logo.jpg" alt="logo Logo-Cooperativa-Bouquet" width="50" height="60">
+<div class="container-fluid fw-bold text-start " style="font-size: 1.5rem;">
+    Cooperativa Bouquet
+    <img src="/assets/img/coop-logo.jpg" alt="logo Logo-Cooperativa-Bouquet" width="80" height="70">
+    <p class="text-justify fw-normal" style="width: 20%;font-size: 1rem;">
+        La cooperativa, En la actualidad cuenta con una capacidad de acopio de 42.000 toneladas
+    y alquila al Ferrocarril Nuevo Central Argentino (NCA), un galpón con capacidad de 1500 toneladas,
+    que es el mismo que ocupó en los años '50.
+    </p>
 </div>
 
+<p>link1</p>
+<p>link2</p>
+   
+</footer> -->
 
-   <p class="text-white text-center " > © 2025 Cooperativa Bouquet - Todos los derechos reservados - Magic's Complex Corp.</p>
+ 
+
+
+
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row g-4 justify-content-between align-items-start">
+            
+            <!-- Columna 1: Logo y Descripción -->
+            <div class="col-12 col-md-4 text-center text-md-start">
+                <h5 class="fw-bold">COOOPERATIVA BOUQUET</h5>
+                <img src="/assets/img/coop-logo.jpg" 
+                     alt="Cooperativa Logo" 
+                     class="img-fluid" 
+                     style="max-width: 250px;">
+                <p class="mt-3">
+                    En la actualidad cuenta con una capacidad de acopio de 42.000 toneladas
+    y alquila al Ferrocarril Nuevo Central Argentino (NCA), un galpón con capacidad de 1500 toneladas,
+    que es el mismo que ocupó en los años '50.
+                </p>
+            </div>
+
+            <!-- Columna 2: Acceso Rápido -->
+            <div class="col-12 col-md-4 text-center text-md-start">
+                <h5 class="fw-bold">ACCESO RÁPIDO</h5>
+                <ul class="list-unstyled">
+                    <li><a (click)="scrollToTop()" routerLink="Inicio" routerLinkActive="active"  class="text-light text-decoration-none">Inicio</a></li>
+                    <li><a (click)="scrollToTop()" routerLink="Institucion" routerLinkActive="active"  class="text-light text-decoration-none">Institución</a></li>
+                    <li><a (click)="scrollToTop()" routerLink="Servicios" routerLinkActive="active"  class="text-light text-decoration-none">Servicios</a></li>
+                    <li><a (click)="scrollToTop()" routerLink="Actividades" routerLinkActive="active"  class="text-light text-decoration-none">Actividades</a></li>
+                    <li><a (click)="scrollToTop()" routerLink="Contacto" routerLinkActive="active"  class="text-light text-decoration-none">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Clientes y Políticas -->
+            <div class="col-12 col-md-4 text-center text-md-start">
+                <h5 class="fw-bold">CLIENTES</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Ingreso socios / clientes</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Política de Cookies</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 </footer>
 
 
+
+<footer class="text-white text-center py-3" style="border-top: 1px solid black;background-color: black;">
+    
+    <p class="text-white text-center " > © 2025 Cooperativa Bouquet - Todos los derechos reservados - Magic's Complex Corp.</p>
+</footer>
