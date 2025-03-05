@@ -16,28 +16,31 @@ import { CommonModule } from '@angular/common';
 export class CerealesComponent implements OnInit {
 
   
-  precios: any[] = [];
+  precios: any = {};
+
+  fecha: { hoy: string } = { hoy: '' }; // Propiedad para la fecha
 
   constructor(private cerealesService: CerealesApiService) {}
-
   ngOnInit(): void {
-    this.cerealesService.getPreciosFobHoy().subscribe(
-      data => this.precios = data.posts[0],
-            error => console.error('Error al obtener datos', error)
+    // Obtener la fecha del día
+    const currentDate = new Date();
+    const day = currentDate.getDate().toString().padStart(2, '0');  // Obtener el día y asegurarse de que tenga dos dígitos
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');  // Obtener el mes y asegurarse de que tenga dos dígitos
+    const year = currentDate.getFullYear();
+
+    this.fecha.hoy = `${day}-${month}-${year}`;  // Formato dd-mm-yyyy
+    console.log(this.fecha);
+    
+
+    this.cerealesService.getPrecios().subscribe(
+      data => {
+        this.precios = data,
+        console.log(this.precios);
+        
+      },
+      error => console.error('Error al obtener los precios', error)
     );
-
   }
- 
-
-
- // Función para verificar y mostrar los datos
- verificarDatos(): void {
-  if (this.precios.length === 0) {
-    console.log('No se encontraron datos.');
-  } else {
-    console.log('Datos actuales:', this.precios);
-  }
-}
 
 
 }

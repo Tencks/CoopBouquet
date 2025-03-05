@@ -1,92 +1,67 @@
-<div class="row d-flex flex-wrap justify-content-center mx-auto" style="position: relative; top: -12rem;">
-  
-    <div class="card mx-2 custom-card" style="width: 18rem;">
-      <img src="assets/img/girasol.jpg" class="custom-card-img card-img-top" alt="girasol">
-      <div class="card-body">
-        <h2 class="card-title text-center fw-bold">GIRASOL</h2>
-        <h6 class="card-text text-center">15-02-2024</h6>
-        <h1 class="card-text text-center custom-color"> $290.000</h1>
-      </div>
-    </div>
-  
-    <div class="card mx-2 custom-card" style="width: 18rem;">
-      <img src="assets/img/sorgo.jpg" class="custom-card-img card-img-top" alt="Sorgo">
-      <div class="card-body">
-        <h2 class="card-title text-center fw-bold">SORGO</h2>
-        <h6 class="card-text text-center">15-02-2024</h6>
-        <h1 class="card-text text-center custom-color"> $165.000</h1>
-      </div>
-    </div>
-  
-    <div class="card mx-2 custom-card" style="width: 18rem;">
-      <img src="assets/img/maiz.jpg" class="custom-card-img card-img-top" alt="Maiz">
-      <div class="card-body">
-        <h2 class="card-title text-center fw-bold">MAIZ</h2>
-        <h6 class="card-text text-center">15-02-2024</h6>
-        <h1 class="card-text text-center custom-color"> $150.000</h1>
-      </div>
-    </div>
-  
-    <div class="card mx-2 custom-card" style="width: 18rem;">
-      <img src="assets/img/trigo.jpg" class="custom-card-img card-img-top" alt="Trigo">
-      <div class="card-body">
-        <h2 class="card-title text-center fw-bold">TRIGO</h2>
-        <h6 class="card-text text-center">15-02-2024</h6>
-        <h1 class="card-text text-center custom-color"> $180.000</h1>
-      </div>
-    </div>
-  
-    <div class="card mx-2 custom-card" style="width: 18rem;">
-      <img src="assets/img/soja.webp" class="custom-card-img card-img-top" alt="Soja">
-      <div class="card-body">
-        <h2 class="card-title text-center fw-bold">SOJA</h2>
-        <h6 class="card-text text-center">15-02-2024</h6>
-        <h1 class="card-text text-center custom-color"> $255.000</h1>
-      </div>
-    </div>
-  
-    <div class="container-fluid text-center m-75 align-text-middle bg-success" style="margin-top: 1rem; width:calc(100% - 300px);">
-      <h4>
-      <a routerLink="Cereales" style="cursor: pointer;text-decoration: none;color: black;"> 
-        VER TODOS LOS CEREALES Y CONDICIONES  
-      </a>
-      <!-- <a routerLink="Cereales" style="cursor: pointer;text-decoration: none;color: black;font-weight:600"> 
-        VER TODOS LOS CEREALES Y CONDICIONES  
-      </a> -->
-    </h4>
-    </div>
-  </div>
 
 
-<!-- 
-  <div class="container mt-4">
-    <div class="card shadow-sm">
-      <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">Precios FOB de Cereales</h5>
-      </div>
-      <div class="card-body">
-        <table class="table table-striped table-bordered text-center">
-          <thead class="table-dark">
-            <tr>
-              <th>Producto</th>
-              <th>Precio FOB</th>
-              <th>Moneda</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (precio of precios; track precio.precio) {
-              <tr>
-                <td>{{ precio.precio }}</td>
-                <td>{{ precio.ciruclar }}</td>
-                <td>{{ precio.fecha }}</td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="row d-flex flex-wrap justify-content-center mx-auto" style="position: relative; top: -12rem;">
+    
+  
 
+      <div class="card mx-2 custom-card" style="width: 18rem;">
+        <img src="assets/img/girasol.jpg" class="custom-card-img card-img-top" alt="girasol">
+        <div class="card-body">
+          <h2 class="card-title text-center fw-bold">GIRASOL</h2>
+          <h6 class="card-text text-center">{{ fecha.hoy }}</h6>
+          <h1 class="card-text text-center custom-color"> {{ precios.girasol }}</h1>
+        </div>
+      </div>
+    
+      <div class="card mx-2 custom-card" style="width: 18rem;">
+        <img src="assets/img/sorgo.jpg" class="custom-card-img card-img-top" alt="Sorgo">
+        <div class="card-body">
+          <h2 class="card-title text-center fw-bold">SORGO</h2>
+          <h6 class="card-text text-center">{{ fecha.hoy }}</h6>
+          <h1 class="card-text text-center custom-color"> {{ precios.sorgo }} </h1>
+        </div>
+      </div>
+    
+      <div class="card mx-2 custom-card" style="width: 18rem;">
+        <img src="assets/img/maiz.jpg" class="custom-card-img card-img-top" alt="Maiz">
+        <div class="card-body">
+          <h2 class="card-title text-center fw-bold">MAIZ</h2>
+          <h6 class="card-text text-center">{{ fecha.hoy }}</h6>
+          <h1 class="card-text text-center custom-color"> {{ precios.maiz }} </h1>
+        </div>
+      </div>
+    
+      <div class="card mx-2 custom-card" style="width: 18rem;">
+        <img src="assets/img/trigo.jpg" class="custom-card-img card-img-top" alt="Trigo">
+        <div class="card-body">
+          <h2 class="card-title text-center fw-bold">TRIGO</h2>
+          <h6 class="card-text text-center">{{ fecha.hoy }}</h6>
+          <h1 class="card-text text-center custom-color"> {{ precios.trigo }} </h1>
+        </div>
+      </div>
+    
+      <div class="card mx-2 custom-card" style="width: 18rem;">
+        <img src="assets/img/soja.webp" class="custom-card-img card-img-top" alt="Soja">
+        <div class="card-body">
+          <h2 class="card-title text-center fw-bold">SOJA</h2>
+          <h6 class="card-text text-center">{{ fecha.hoy }}</h6>
+          <h1 class="card-text text-center custom-color"> {{ precios.soja }} </h1>
+        </div>
+      </div>
+
+    
       
-  <button (click)="verificarDatos()">Verificar Datos</button>
-  </div>
-   -->
+    
+      <div class="container-fluid text-center m-75 align-text-middle bg-success" style="margin-top: 1rem; width:calc(100% - 300px);">
+        <h4>
+        <a routerLink="Cereales" style="cursor: pointer;text-decoration: none;color: black;"> 
+          VER TODOS LOS CEREALES Y CONDICIONES  
+        </a>
+        <!-- <a routerLink="Cereales" style="cursor: pointer;text-decoration: none;color: black;font-weight:600"> 
+          VER TODOS LOS CEREALES Y CONDICIONES  
+        </a> -->
+      </h4>
+      </div>
+    </div>
+
+
