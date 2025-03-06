@@ -9,11 +9,19 @@
 }
 
 
-/* .custom-shadow {
-    transition: shadow 0.5s ease-in-out;
+@media (max-width: 812px) {
+    .custom-logo{
+        width: 7rem;
+    }
 }
 
-.custom-shadow:hover {
-    filter: drop-shadow(1px -1px 3px black);
+@media (max-width: 411px) {
+    .custom-logo{
+        width: 6rem;
+    }
 
-} */
+    .custom-wsp{
+        width: 5rem;
+    }
+
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CerealesApiService } from '../../../core/service/banner-cereales/cereales-api.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 
 
 @Component({
@@ -20,27 +20,36 @@ export class CerealesComponent implements OnInit {
 
   fecha: { hoy: string } = { hoy: '' }; // Propiedad para la fecha
 
-  constructor(private cerealesService: CerealesApiService) {}
+  fechaFormateada = "" // Para mostrar en la UI
+
+  constructor(private cerealesService: CerealesApiService, private viewportScroller: ViewportScroller) {}
   ngOnInit(): void {
-    // Obtener la fecha del día
-    const currentDate = new Date();
-    const day = currentDate.getDate().toString().padStart(2, '0');  // Obtener el día y asegurarse de que tenga dos dígitos
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');  // Obtener el mes y asegurarse de que tenga dos dígitos
-    const year = currentDate.getFullYear();
-
-    this.fecha.hoy = `${day}-${month}-${year}`;  // Formato dd-mm-yyyy
-    console.log(this.fecha);
-    
-
     this.cerealesService.getPrecios().subscribe(
-      data => {
-        this.precios = data,
-        console.log(this.precios);
-        
+      (data) => {
+        console.log("Datos recibidos del API:", data)
+
+        // Asignar los precios
+        this.precios = data.precios || {}
+
+        // Formatear la fecha para mostrar en la UI (de YYYY-MM-DD a DD-MM-YYYY)
+        if (data.fecha) {
+          const partesFecha = data.fecha.split("-")
+          if (partesFecha.length === 3) {
+            this.fechaFormateada = `${partesFecha[2]}-${partesFecha[1]}-${partesFecha[0]}`
+          } else {
+            this.fechaFormateada = data.fecha
+          }
+        }
+
+        console.log("Precios procesados:", this.precios)
+        console.log("Fecha formateada:", this.fechaFormateada)
       },
-      error => console.error('Error al obtener los precios', error)
-    );
+      (error) => console.error("Error al obtener los precios", error),
+    )
   }
 
 
+  scrollToTop(): void {
+    this.viewportScroller.scrollToPosition([0, 0]); // Desplaza a la parte superior
+  }
 }

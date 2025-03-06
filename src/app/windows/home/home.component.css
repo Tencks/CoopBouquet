@@ -6,3 +6,35 @@
     width: 100%;
     height: 50vh;
 }
+
+.video-bg {
+    width: 100vw; /* Ocupa todo el ancho disponible */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios adicionales por ser un elemento en línea */
+    object-fit: cover; /* Ajusta el video sin dejar espacios */
+}
+
+.video-div{
+    margin-top: -100px;
+}
+/* Cuando la pantalla sea de 1060px o menos */
+@media (max-width: 1060px) {
+    .video-div{
+        margin-top: -10px;
+    }
+}
+
+/* Cuando la pantalla sea de 611px o mas */
+@media (max-width: 611px) {
+    .video-div{
+        margin-top: -5px;
+    }
+}
+
+/* Cuando la pantalla sea de 400px o menos */
+@media (max-width: 400px) {
+    .video-bg {
+        /* border-bottom: 1px solid black; */
+        filter: drop-shadow(3px 3px 3px black);
+    }
+}

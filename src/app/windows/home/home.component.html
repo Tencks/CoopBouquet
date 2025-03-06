@@ -1,10 +1,17 @@
 
-<div class="container-fluid mx-auto" style="z-index: -2;position: relative;top: -100px;left: -13px;">
+<!-- <div class="container-fluid mx-auto" style="z-index: -2;position: relative;top: -100px;left: -13px;">
     
     <video  loop autoplay [muted]="1" width="102%">
         <source src="assets/videos/adm-boquet.mp4" type="video/mp4">
     </video>
+</div> -->
+
+<div class="container-fluid mx-auto position-relative video-div" style="z-index: -2;left: -13px;">
+    <video loop autoplay [muted]="1" playsinline class="video-bg">
+        <source src="assets/videos/adm-boquet.mp4" type="video/mp4">
+    </video>
 </div>
+
 
 <app-cereales></app-cereales>
 
