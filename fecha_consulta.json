@@ -1,6 +1,12 @@
 {
-  "fechaConsulta": "2025-03-05",
-  "fechaWeb": "2025-02-28",
-  "preciosActualizados": false,
-  "precios": null
+  "fechaConsulta": "2025-03-06",
+  "fechaWeb": "2025-03-05",
+  "preciosActualizados": true,
+  "precios": {
+    "trigo": "$213.000,00",
+    "maiz": "$208.500,00",
+    "girasol": "$350.200,00",
+    "soja": "$318.500,00",
+    "sorgo": "$200.000,00"
+  }
 }

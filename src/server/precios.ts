@@ -1,160 +1,19 @@
-// import fs from 'fs';
-// import path from 'path';
-// import puppeteer from 'puppeteer';
-
-// const DATA_FILE = path.resolve('precios.json');
-
-// export async function obtenerPrecios(): Promise<any> {
-//   try {
-//     const preciosGuardados = cargarPrecios();
-//     if (preciosGuardados && preciosGuardados.fecha === obtenerFechaHoy()) {
-//       console.log('Usando datos almacenados.');
-//       return preciosGuardados.precios;
-//     }
-
-//     console.log('Obteniendo datos de la web...');
-//     const precios = await scrapearPrecios();
-//     guardarPrecios(precios);
-//     return precios;
-//   } catch (error) {
-//     console.error('Error al obtener precios:', error);
-//     return null;
-//   }
-// }
-
-// function obtenerFechaHoy(): string {
-//   const hoy = new Date();
-//   return `${hoy.getFullYear()}-${(hoy.getMonth() + 1).toString().padStart(2, '0')}-${hoy.getDate().toString().padStart(2, '0')}`;
-// }
-
-// function cargarPrecios(): { fecha: string, precios: any } | null {
-//   if (!fs.existsSync(DATA_FILE)) return null;
-//   try {
-//     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-//   } catch {
-//     return null;
-//   }
-// }
-
-// function guardarPrecios(precios: any) {
-//   fs.writeFileSync(DATA_FILE, JSON.stringify({ fecha: obtenerFechaHoy(), precios }, null, 2));
-// }
-
-// async function scrapearPrecios(): Promise<any> {
-//   const url = 'https://www.cac.bcr.com.ar/es/precios-de-pizarra';
-//   const browser = await puppeteer.launch({ headless: true });
-//   const page = await browser.newPage();
-//   await page.goto(url, { waitUntil: 'domcontentloaded' });
-
-//   const granos = ['trigo', 'maiz', 'girasol', 'soja', 'sorgo'];
-//   const precios: Record<string, string> = {};
-
-//   for (const grano of granos) {
-//     const selector = `.board.board-${grano} .price`;
-//     precios[grano] = await page.$eval(selector, el => el.textContent?.trim() || 'N/D');
-//   }
-
-//   await browser.close();
-//   return precios;
-// }
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-
-// import fs from 'fs';
-// import path from 'path';
-// import puppeteer from 'puppeteer';
-
-// const DATA_FILE = path.resolve('precios.json');
-
-// export async function obtenerPrecios(): Promise<any> {
-//   try {
-//     const preciosGuardados = cargarPrecios();
-//     if (preciosGuardados && preciosGuardados.fecha === obtenerFechaHoy()) {
-//       console.log('Usando datos almacenados.');
-//       return preciosGuardados;
-//     }
-
-//     console.log('Obteniendo datos de la web...');
-//     const precios = await scrapearPrecios();
-//     guardarPrecios(precios);
-//     return precios;
-//   } catch (error) {
-//     console.error('Error al obtener precios:', error);
-//     return null;
-//   }
-// }
-
-
-
-// function obtenerFechaHoy(): string {
-//     const hoy = new Date();
-//     return `${hoy.getDate().toString().padStart(2, '0')}/${(hoy.getMonth() + 1).toString().padStart(2, '0')}/${hoy.getFullYear()}`;
-//   }
-  
-
-// function cargarPrecios(): { fecha: string, precios: any } | null {
-//   if (!fs.existsSync(DATA_FILE)) return null;
-//   try {
-//     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-//   } catch {
-//     return null;
-//   }
-// }
-
-// function guardarPrecios(datos: { fecha: string, precios: Record<string, string> }) {
-//   fs.writeFileSync(DATA_FILE, JSON.stringify(datos, null, 2));
-// }
-
-// async function scrapearPrecios(): Promise<{ fecha: string, precios: Record<string, string> }> {
-//   const url = 'https://www.cac.bcr.com.ar/es/precios-de-pizarra';
-//   const browser = await puppeteer.launch({ headless: true });
-//   const page = await browser.newPage();
-//   await page.goto(url, { waitUntil: 'domcontentloaded' });
-
-//   const granos = ['trigo', 'maiz', 'girasol', 'soja', 'sorgo'];
-//   const precios: Record<string, string> = {};
-
-//   for (const grano of granos) {
-//     const selector = `.board.board-${grano} .price`;
-//     try {
-//       precios[grano] = await page.$eval(selector, el => el.textContent?.trim() || 'N/D');
-//     } catch {
-//       precios[grano] = 'N/D'; // Si no encuentra el precio, asigna "N/D"
-//     }
-//   }
-
-//   // Extraer la fecha del encabezado dentro de la clase "board-prices"
-//   let fechaPublicada = 'Fecha no encontrada';
-//   try {
-//     fechaPublicada = await page.$eval(
-//       '.board-prices h3',
-//       el => el.textContent?.replace(/\D*(\d{2}\/\d{2}\/\d{4})\D*/, '$1') || 'Fecha no encontrada'
-//     );
-//   } catch (error) {
-//     console.warn('No se pudo extraer la fecha de la página.');
-//   }
-
-//   await browser.close();
-
-//   return { fecha: fechaPublicada, precios };
-// }
-
-
-/////////////////////////////////////////////////////////////////////////////
-
-
 import fs from "fs"
 import path from "path"
 import puppeteer from "puppeteer"
 
 // Rutas a los archivos de caché
 const DATA_FILE = path.resolve("precios.json")
+const DATA_OLD_FILE = path.resolve("precios_old.json")
 const FECHA_CONSULTA_FILE = path.resolve("fecha_consulta.json")
+
+// Valores que indican que no hay cotización
+const SIN_COTIZACION = ["S/C", "N/D", "s/c", "n/d", "-", "", "sin cotización", "sin cotizacion"]
 
 /**
  * Función principal para obtener precios
  * Implementa una estrategia optimizada para minimizar consultas a la web
+ * y mantiene precios anteriores cuando no hay cotización
  */
 export async function obtenerPrecios(): Promise<any> {
   try {
@@ -230,16 +89,26 @@ export async function obtenerPrecios(): Promise<any> {
 
     // CASO 3: La fecha de la web es diferente, hacemos scraping completo
     console.log("La fecha de la web es diferente. Obteniendo datos actualizados...")
+
+    // Antes de hacer scraping, guardamos los precios actuales como respaldo
+    if (preciosGuardados) {
+      guardarPreciosAnteriores(preciosGuardados.precios, preciosGuardados.fecha)
+    }
+
+    // Obtener nuevos precios
     const { precios, fecha } = await scrapearPrecios()
 
+    // Verificar si hay precios sin cotización y reemplazarlos con precios anteriores
+    const preciosConRespaldo = reemplazarPreciosSinCotizacion(precios)
+
     // Guardar los nuevos datos
-    guardarPrecios(precios, fecha)
+    guardarPrecios(preciosConRespaldo, fecha)
 
     // Actualizar el registro de consulta con los precios nuevos
-    guardarFechaConsulta(fechaHoy, fecha, true, precios)
+    guardarFechaConsulta(fechaHoy, fecha, true, preciosConRespaldo)
 
     return {
-      precios: precios,
+      precios: preciosConRespaldo,
       fecha: fecha,
     }
   } catch (error) {
@@ -259,6 +128,68 @@ export async function obtenerPrecios(): Promise<any> {
       precios: null,
       fecha: obtenerFechaHoy(),
     }
+  }
+}
+
+/**
+ * Reemplaza los precios sin cotización con precios anteriores
+ */
+function reemplazarPreciosSinCotizacion(precios: Record<string, string>): Record<string, string> {
+  // Cargar precios anteriores
+  const preciosAnteriores = cargarPreciosAnteriores()
+  if (!preciosAnteriores) {
+    console.log("No hay precios anteriores disponibles para reemplazar valores sin cotización.")
+    return precios
+  }
+
+  // Crear una copia de los precios actuales
+  const preciosConRespaldo = { ...precios }
+
+  // Verificar cada grano
+  for (const grano in preciosConRespaldo) {
+    const precioActual = preciosConRespaldo[grano]
+
+    // Si el precio actual está en la lista de valores sin cotización
+    if (SIN_COTIZACION.includes(precioActual.trim())) {
+      console.log(`Grano ${grano} sin cotización actual (${precioActual}).`)
+
+      // Verificar si tenemos un precio anterior para este grano
+      if (preciosAnteriores.precios[grano] && !SIN_COTIZACION.includes(preciosAnteriores.precios[grano].trim())) {
+        preciosConRespaldo[grano] = preciosAnteriores.precios[grano]
+        console.log(`Usando precio anterior para ${grano}: ${preciosConRespaldo[grano]}`)
+      } else {
+        console.log(`No hay precio anterior válido para ${grano}.`)
+      }
+    }
+  }
+
+  return preciosConRespaldo
+}
+
+/**
+ * Guarda los precios anteriores
+ */
+function guardarPreciosAnteriores(precios: any, fecha: string): void {
+  try {
+    fs.writeFileSync(DATA_OLD_FILE, JSON.stringify({ fecha, precios }, null, 2))
+    console.log("Precios anteriores guardados correctamente.")
+  } catch (error) {
+    console.error("Error al guardar precios anteriores:", error)
+  }
+}
+
+/**
+ * Carga los precios anteriores
+ */
+function cargarPreciosAnteriores(): { fecha: string; precios: Record<string, string> } | null {
+  if (!fs.existsSync(DATA_OLD_FILE)) return null
+
+  try {
+    const datos = JSON.parse(fs.readFileSync(DATA_OLD_FILE, "utf8"))
+    return datos
+  } catch (error) {
+    console.error("Error al leer el archivo de precios anteriores:", error)
+    return null
   }
 }
 

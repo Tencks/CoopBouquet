@@ -13,7 +13,7 @@ import { InstitucionUbicacionComponent } from "../institucion-ubicacion/instituc
 export class InstitucionBaseComponent {
 
 
-  activo = '';
+  activo = 'historia';
 
   seleccionar(seccion: string) {
     this.activo = seccion;

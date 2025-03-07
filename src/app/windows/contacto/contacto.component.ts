@@ -10,8 +10,4 @@ export class ContactoComponent {
 
   constructor() {}
 
-  datosEmail = [
-   'agricola@redcrs.com.ar', 
-  ]
-
 }

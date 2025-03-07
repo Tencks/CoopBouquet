@@ -16,7 +16,7 @@ import { ServiciosMedPrivadaComponent } from "../servicios-med-privada/servicios
 })
 export class ServiciosBaseComponent {
 
-  activo2 = '';
+  activo2 = 'semillas';
 
   seleccionar(seccion: string) {
     this.activo2 = seccion;

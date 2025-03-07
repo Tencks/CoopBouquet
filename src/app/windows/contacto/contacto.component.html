@@ -1,78 +1,57 @@
+
+
+<div  style="height: 10vh; z-index: -1;"></div>
+
+
+
 <div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
+    <div class="row justify-content-center align-items-center">
+        <!-- Sección de datos de contacto -->
+        <div class="col-lg-5 mb-4 mb-lg-0">
+            <div class="card shadow-lg p-4">
+                <h2 class="card-title text-center mb-4 fw-bold ">NUESTROS DATOS DE CONTACTO</h2>
+                <h4 class="fw-bold text-success">Cooperativa Bouquet</h4>
+                <p class="mb-1"><strong>Email:</strong> agricola&#64;redcrs.com.ar</p>
+                <p class="mb-1"><strong>Nro de celular:</strong> +54 0000 000000</p>
+                <p class="mb-3"><strong>Sitio Web:</strong> coopeativabouquet.com</p>
+                <img src="assets/img/empresa-frente.jpg" alt="Frente de empresa" class="img-fluid rounded">
+            </div>
+        </div>
+
+        <!-- Sección del formulario de contacto -->
+        <div class="col-lg-6">
             <div class="card shadow-lg p-4">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Send Us A Message</h2>
+                    <h2 class="card-title text-center mb-4 fw-bold ">CONTACTANOS</h2>
                     <form>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="first-name" class="form-label">First Name *</label>
-                                <input type="text" id="first-name" class="form-control" placeholder="First name" required>
+                                <label for="first-name" class="form-label fw-bold">Nombre *</label>
+                                <input type="text" id="first-name" class="form-control" placeholder="Nombre" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="last-name" class="form-label">Last Name *</label>
-                                <input type="text" id="last-name" class="form-control" placeholder="Last name" required>
+                                <label for="last-name" class="form-label fw-bold">Apellido *</label>
+                                <input type="text" id="last-name" class="form-control" placeholder="Apellido" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" class="form-control" placeholder="Eg. example@email.com" required>
+                            <label for="email" class="form-label fw-bold">Email *</label>
+                            <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="text" id="phone" class="form-control" placeholder="Eg. +1 800 000000">
+                            <label for="phone" class="form-label fw-bold">Número de teléfono</label>
+                            <input type="text" id="phone" class="form-control" placeholder="+54 0000 000000">
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Write us a message" required></textarea>
+                            <label for="message" class="form-label fw-bold">Mensaje *</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Dejanos tu mensaje aquí" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="custom-btn custom-btn-primary">Enviar Mensaje!</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row justify-content-center mt-4">
-        <div class="col-lg-8 text-center">
-            <div class="card shadow-lg p-4">
-                <h4>Contact Information</h4>
-                <p><i class="bi bi-geo-alt-fill"></i> Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US</p>
-                <p><i class="bi bi-telephone-fill"></i> +1 800 1236879</p>
-                <p><i class="bi bi-envelope-fill"></i> contact.com</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-lg p-4">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">CONTACTANOS</h2>
-                    <form>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-8 text-center">
-                <div class="card shadow-lg p-4">
-                    <h4>Cooperativa Bouquet</h4>
-                    <label>
-                       Email: <p>{{datosEmail}}</p>
-                    </label>
-                    <p> +1 800 1236879</p>
-                    <p> contact.com</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
