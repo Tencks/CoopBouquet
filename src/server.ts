@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+// agregado por tencks
+dotenv.config();
+
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
@@ -10,12 +14,26 @@ import { fileURLToPath } from 'node:url';
 
 import { obtenerPrecios } from './server/precios';
 
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import mailRoutes from './server/mail/mail.routes';
+
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
+
+
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+
+// Configurar Express por Tencks
+app.use(cors());
+app.use(bodyParser.json());
+
+// Rutas API
+app.use('/api', mailRoutes);
 
 /* ENDPOINT PRECIOS GRANOS */
 

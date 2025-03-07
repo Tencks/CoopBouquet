@@ -23,33 +23,38 @@
             <div class="card shadow-lg p-4">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4 fw-bold ">CONTACTANOS</h2>
-                    <form>
+                    <form id="formulario" (ngSubmit)="enviar()" [formGroup]="formulario" >
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="first-name" class="form-label fw-bold">Nombre *</label>
-                                <input type="text" id="first-name" class="form-control" placeholder="Nombre" required>
+                                <label for="nombre" class="form-label fw-bold">Nombre *</label>
+                                <input type="text" id="nombre" class="form-control" formControlName="nombre" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="last-name" class="form-label fw-bold">Apellido *</label>
-                                <input type="text" id="last-name" class="form-control" placeholder="Apellido" required>
+                                <label for="apellido" class="form-label fw-bold">Apellido *</label>
+                                <input type="text" id="apellido" class="form-control" formControlName="apellido" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">Email *</label>
-                            <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
+                            <input type="email" id="email" class="form-control" formControlName="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label fw-bold">Número de teléfono</label>
-                            <input type="text" id="phone" class="form-control" placeholder="+54 0000 000000">
+                            <label for="telefono" class="form-label fw-bold">Número de teléfono</label>
+                            <input type="text" id="telefono" class="form-control" formControlName="telefono">
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label fw-bold">Mensaje *</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Dejanos tu mensaje aquí" required></textarea>
+                            <label for="mensaje" class="form-label fw-bold">Mensaje *</label>
+                            <textarea id="mensaje" class="form-control" rows="4" formControlName="mensaje" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="custom-btn custom-btn-primary">Enviar Mensaje!</button>
+                            <button type="submit" class="custom-btn custom-btn-primary" [disabled]="formulario.invalid">Enviar Mensaje!</button>
                         </div>
+                    
+<!--                         
+                        <div *ngIf="enviado" class="alert alert-success mt-3">¡Mensaje enviado con éxito!</div>
+                        <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div> -->
                     </form>
+                    
                 </div>
             </div>
         </div>
