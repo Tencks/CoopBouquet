@@ -17,5 +17,14 @@ export class InstitucionBaseComponent {
 
   seleccionar(seccion: string) {
     this.activo = seccion;
-  }
+     // Pequeño delay para esperar la animación
+  setTimeout(() => {
+    const container = document.querySelector('.content-container') as HTMLElement;
+    const activeContent = document.querySelector('.animate-slide.active') as HTMLElement;
+
+    if (container && activeContent) {
+      container.style.height = `${activeContent.offsetHeight}px`;
+    }
+  }, 50);
+}
 }

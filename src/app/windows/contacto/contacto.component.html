@@ -47,7 +47,8 @@
                             <textarea id="mensaje" class="form-control" rows="4" formControlName="mensaje" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="custom-btn custom-btn-primary" [disabled]="formulario.invalid">Enviar Mensaje!</button>
+                            <button type="submit" class="custom-btn custom-btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                             [disabled]="formulario.invalid">Enviar Mensaje!</button>
                         </div>
                     
 <!--                         
@@ -60,3 +61,21 @@
         </div>
     </div>
 </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Gracias por comunicarte!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Hemos enviado tu información y nos comunicaremos en la brevedad contigo! 
+        </div>
+        <div class="modal-footer">
+          <button type="button"  class="custom-btn custom-btn-primary" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>

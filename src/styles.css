@@ -9,6 +9,7 @@ html, body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -38,4 +39,9 @@ html, body {
 .custom-btn-primary:hover {
     background-color: #08ca32; /* Azul más oscuro al pasar el mouse */
     transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+
+.space-top {
+    margin-top: 15px;
 }

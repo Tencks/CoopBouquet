@@ -3,7 +3,7 @@
 
 <div  style="height: 10vh; z-index: -1;"></div>
 
-  <div class="container border border-secondary rounded p-4">
+  <div class="container container-fluid border border-secondary rounded p-4">
     <!-- <h2 class="text-center mb-4"> Servicios</h2> -->
     
     <h2 class="fw-bold text-success">Los Servicios</h2>
@@ -20,14 +20,14 @@
 
   
 
-    <div class="d-flex justify-content-center gap-2 mb-4">
+    <div class="d-flex flex-wrap  justify-content-center gap-2 mb-4">
       <button class="custom-btn custom-btn-primary" (click)="seleccionar('semillas')">Semillas/Forrajes</button>
       <button class="custom-btn custom-btn-primary" (click)="seleccionar('balanceados')">Balanceados</button>
       <button class="custom-btn custom-btn-primary" (click)="seleccionar('quimicos')">Productos Quimicos</button>
       <button class="custom-btn custom-btn-primary" (click)="seleccionar('seguros')">Seguros</button>
     </div>
 
-    <div class="d-flex justify-content-center gap-2 mb-4">
+    <div class="d-flex flex-wrap  justify-content-center gap-2 mb-4">
         <button class="custom-btn custom-btn-primary" (click)="seleccionar('asesoramiento')">Asesoramiento</button>
         <button class="custom-btn custom-btn-primary" (click)="seleccionar('turismo')">Turismo</button>
         <button class="custom-btn custom-btn-primary" (click)="seleccionar('combustible')">Combustibles</button>

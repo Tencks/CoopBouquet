@@ -1,0 +1,74 @@
+.hover-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height:250px;
+    object-fit: cover;
+}
+
+.custom-div{
+    width: 50%;
+}
+
+.carousel-item {
+    background-color: rgb(146, 212, 22) !important;
+    border-radius: 15px;
+    padding: 10px 15px;
+}
+
+@media (max-width: 1390px) {
+    .custom-title{
+    font-size: 1.4rem;
+    }
+
+    .custom-btn-access{
+    font-size: .9rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .custom-title{
+    font-size: 1.2rem;
+    }
+
+    .custom-btn-access{
+    font-size: .9rem;
+    }
+
+    .custom-div{
+        width: 80%;
+    }
+}
+
+@media (max-width: 770px) {
+    .custom-title{
+    font-size: 1.05rem;
+    }
+
+    .custom-btn-access{
+    font-size: .8rem;
+    }
+
+    .custom-div{
+        width: 90%;
+    }
+}
+
+@media (max-width: 520px) {
+    .custom-title{
+    font-size: 1rem;
+    }
+
+    .custom-btn-access{
+    font-size: .65rem;
+    }
+
+    .custom-div{
+        width: 100%;
+    }
+}

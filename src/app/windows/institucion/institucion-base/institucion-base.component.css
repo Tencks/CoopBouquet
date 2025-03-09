@@ -1,7 +1,8 @@
+
 .content-container {
     position: relative;
-    height: 240vh;
-    /* min-height: calc(100% + 5rem); Altura del contenido + 5rem extra */
+    /* height: 240vh; */
+    min-height: 404px;
     overflow: hidden;
   }
   
@@ -21,6 +22,16 @@
     opacity: 1;
   }
   
-  /* .custom-div{
-    min-height: 5vh;
-  } */
+/* Cuando la pantalla sea de 771px o menos */
+@media (max-width: 771px){
+  .custom-btn {
+    width: 40%;
+  }
+}
+
+/* Cuando la pantalla sea de 511px o menos */
+@media (max-width: 511px) {
+  .custom-btn {
+    width: 80%;
+  }
+}

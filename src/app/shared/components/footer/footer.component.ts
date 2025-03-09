@@ -14,6 +14,9 @@ export class FooterComponent {
   constructor(private viewportScroller: ViewportScroller) {}
 
   scrollToTop(): void {
-    this.viewportScroller.scrollToPosition([0, 0]); // Desplaza a la parte superior
+    document.documentElement.scrollTop = 0; // Para navegadores modernos
+    document.body.scrollTop = 0; // Para compatibilidad con algunos navegadores
   }
+
+  
 }

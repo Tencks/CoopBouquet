@@ -1,0 +1,21 @@
+.custom-text-space{
+    margin-top: -2.5rem;
+    text-align: right !important;
+}
+
+.custom-text-hidden {
+    display: none;
+}
+
+@media (max-width: 771px){
+    .custom-text-space{
+        text-align: left !important;
+        margin-top: 0;
+        display: none;
+        font-size: 0px;
+    }
+
+    .custom-text-hidden {
+        display: block;
+    }
+}
