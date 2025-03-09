@@ -9,7 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private viewportScroller: ViewportScroller) {}
+  constructor() {}
 
   scrollToTop(): void {
     document.documentElement.scrollTop = -10; // Para navegadores modernos

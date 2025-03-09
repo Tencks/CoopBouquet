@@ -13,9 +13,10 @@ import { ViewportScroller } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private viewportScroller: ViewportScroller) {}
+  constructor() {}
 
   scrollToTop(): void {
-    this.viewportScroller.scrollToPosition([0, 0]); // Desplaza a la parte superior
+    document.documentElement.scrollTop = -10; // Para navegadores modernos
+    document.body.scrollTop = -10; // Para compatibilidad con algunos navegadores
   }
 }

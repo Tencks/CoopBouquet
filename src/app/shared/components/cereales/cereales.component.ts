@@ -50,6 +50,7 @@ export class CerealesComponent implements OnInit {
 
 
   scrollToTop(): void {
-    this.viewportScroller.scrollToPosition([0, 0]); // Desplaza a la parte superior
+    document.documentElement.scrollTop = -10; // Para navegadores modernos
+    document.body.scrollTop = -10; // Para compatibilidad con algunos navegadores
   }
 }
