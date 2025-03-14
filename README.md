@@ -3,6 +3,9 @@ NG SERVE  = inicializa server en el puerto 4200
 
 NG SERVER --HOST 0.0.0.0 = inicializa el server en local y en la ip del equipo servidor con el puerto correspondiendo de forma disponible para todos lo de la misma red.
 
+NG SERVE --HOST 0.0.0.0 --DISABLE-HOST-CHECK -- Usamos este comando para poder abrir el puerto con ngrok para que pueda ser accedido desde cualquier dispositivo fuera de la web interna.
+    !!!!----- npm install -g ngrok --- Impotante tener ngrok instalado de forma global ---- !!!!!
+
 NG G C "componente" = generamos componentes correspondientes a nuestras necesidades
 
 NG G S "servicio" = generamos servicios correspondientes a lo que vamos a usar
@@ -63,3 +66,43 @@ Y en el angular.json debe quedar así:
             ],
 
 YA QUE POR LO INVESTIGADO EL ORDEN DE LOS SCRIPTS ES DE SUMA IMPORTANCIA PARA QUE FUNCIONE CORRECTAMENTE EL DROPDOWN.
+
+
+USO DE MONGODB EN WINDOWS
+
+------ INSTALACION -----
+
+LINK: https://www.mongodb.com/try/download/community-kubernetes-operator
+
+INSTALL WITHOUT SERVICE
+
+Al terminar agregamos la variable de entorno a windows en path y debería quedar así:
+ " C:\Program Files\MongoDB\Server\{ NRO_VERSION }\bin "
+
+ tiramos un cmd con el comando: mongod.exe --version para verificar su existencia en las variables
+
+  - IMPORTANTE AGREGAR LA CARPETA DATA\DB EN EL DISCO C : " C:\data\db "
+
+tiramos un cmd con el comando: mongod y debería estar andando y escuchando correctamente. 
+
+--- OPCIONAL 1 ----
+Podemos agregar mongosh para la consola de shell en el equipo para conectar de esa forma la db
+
+LINK: https://www.mongodb.com/try/download/shell
+
+Tendremos un archivo .zip, lo vamos a descomprimir y cortar esa carpeta a la ubicación :
+ " " C:\Program Files\MongoDB\ "  ---esto es para que esten en el mismo lugar
+
+ Luego ingresamos a la carpeta copiada , bin y copiamos la url del archivo.exe y la pegamos en el path 
+  al igual que hicimos con la del mongod . 
+
+  de esta forma ya debería estar funcional
+
+  probamos con un cmd y el comando mongosh 
+
+
+---- OPCIONAL 2 ----
+Podemos trabajarlo desde el mongodb compass que se instalo antes.
+
+podemos agregar un colletion y luego darle a conectar con los datos establecidos previamente
+por el mismo mongodb Compass y estaría utilizable, faltaría crear una DB.
